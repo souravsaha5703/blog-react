@@ -11,6 +11,7 @@ export default {
         playfair:["Playfair Display", "serif"],
         oswald:["Oswald", "sans-serif"],
         noto:["Noto Sans", "sans-serif"],
+        merriwhether:["Merriweather", "serif"]
       }
     },
   },
