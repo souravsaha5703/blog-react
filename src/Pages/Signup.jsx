@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { account } from '../appwrite/appwriteConfig'
 import { useNavigate, Link } from 'react-router-dom'
-import { v4 as uuidv4 } from 'uuid'
+import { ID } from 'appwrite'
 import registerPic from '../assets/register page pic.jpg'
 import Input from '../Components/InputFields/Input'
 
@@ -10,28 +10,27 @@ function Signup() {
     const [user, setUser] = useState({
         name: "",
         email: "",
-        password: ""
+        password: "",
+        cpassword: ""
     })
 
     const signupUser = async (e) => {
         e.preventDefault();
+        if (!user.password === user.cpassword) {
+            alert("Password Must be same");
+        } else {
+            const promise = account.create(ID.unique(),user.email,user.password,user.name);
 
-        const promise = account.create(
-            uuidv4(),
-            user.email,
-            user.password,
-            user.name
-        );
-
-        promise.then(
-            function (response) {
-                console.log(response);
-                navigate("/home")//success
-            },
-            function (error) {
-                console.log(error);//failed
-            }
-        )
+            promise.then(
+                function (response) {
+                    console.log(response);
+                    navigate("/blogs")//success
+                },
+                function (error) {
+                    console.log(error);//failed
+                }
+            )
+        }
     }
     return (
         <div className='w-full flex items-center justify-between slate-200'>
@@ -45,26 +44,47 @@ function Signup() {
                             label="Your Name"
                             type="text"
                             placeholder="Enter Your Name"
+                            value={user.name}
+                            onChange={(e) => setUser({
+                                ...user,
+                                name: e.target.value
+                            })}
                             name="name"
                         />
                         <Input
                             label="Your Email Address"
                             type="email"
                             placeholder="Enter Your Email"
+                            value={user.email}
+                            onChange={(e) => setUser({
+                                ...user,
+                                email: e.target.value
+                            })}
                             name="email"
                         />
                         <Input
                             label="Create Password"
                             type="password"
                             placeholder="create your password"
+                            value={user.password}
+                            onChange={(e) => setUser({
+                                ...user,
+                                password: e.target.value
+                            })}
                             name="password"
                         />
                         <Input
                             label="Re-enter Password"
                             type="password"
                             placeholder="re enter your password"
+                            value={user.cpassword}
+                            onChange={(e) => setUser({
+                                ...user,
+                                cpassword: e.target.value
+                            })}
+                            name="cpassword"
                         />
-                        <button className='px-10 py-2 border-2 border-slate-950 text-2xl font-noto mt-5 text-center rounded-md font-medium text-slate-950 duration-150 ease-in-out hover:text-white hover:bg-slate-950'>Register</button>
+                        <button className='px-10 py-2 border-2 border-slate-950 text-2xl font-noto mt-5 text-center rounded-md font-medium text-slate-950 duration-150 ease-in-out hover:text-white hover:bg-slate-950' type='submit' onClick={signupUser}>Register</button>
                         <p className='font-noto font-medium text-base text-center text-black'>Already have an account ?<Link to="/login" className='ml-2 font-poppins text-lg underline'>Login</Link></p>
                     </form>
                 </div>
