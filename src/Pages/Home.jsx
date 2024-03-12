@@ -69,26 +69,6 @@ function Home() {
         <h3 className='text-5xl font-playfair font-bold text-center mt-4 text-slate-950 capitalize max-[768px]:text-xl max-[768px]:mt-2'>the world with different perspective</h3>
         <Link to={"/login"} className='text-xl font-noto font-medium cursor-pointer px-10 py-5 border border-black rounded-full relative overflow-hidden after:content-[""] after:absolute after:h-full after:w-full after:left-[-100%] after:bottom-0 after:bg-black after:rounded-full after:duration-150 after:ease-in-out after:hover:left-0 after:hover:rounded-none group mt-10 max-[768px]:px-6 max-[768px]:py-3'><p className='text-black z-50 relative duration-150 ease-in-out group-hover:text-white'>Get Started</p></Link>
       </div>
-      <footer className="bg-slate-950 w-full p-2">
-        <div className="w-full mx-auto max-w-screen-xl p-4 flex items-center justify-between max-md:flex-col">
-          <span className="text-sm text-gray-500 sm:text-center font-noto">© 2023 <a href="https://flowbite.com/" className="hover:underline">Blog™</a>. All Rights Reserved.
-          </span>
-          <ul className="flex flex-wrap items-center mt-3 text-lg font-medium text-gray-500 sm:mt-0 font-noto capitalize max-md:flex-col">
-            <li>
-              <Link className="hover:underline me-4 md:me-6">About</Link>
-            </li>
-            <li>
-              <Link className="hover:underline me-4 md:me-6">Contact us</Link>
-            </li>
-            <li>
-              <Link className="hover:underline me-4 md:me-6">Privacy policy</Link>
-            </li>
-            <li>
-              <Link className="hover:underline me-4 md:me-6">Licensing</Link>
-            </li>
-          </ul>
-        </div>
-      </footer>
     </div>
   )
 }
