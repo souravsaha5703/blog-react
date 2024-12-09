@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Navbar from '@/components/Header/Navbar';
 import FeatureCards from '@/components/FeatureCards/FeatureCards';
 import { Bot, Edit, Share } from 'lucide-react';
-
+import { RainbowButton } from "@/components/ui/rainbow-button";
 
 function Home() {
   return (
@@ -13,9 +13,11 @@ function Home() {
       <div className='w-full flex items-center justify-center flex-col bg-background'>
         <div className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
           <Meteors number={30} />
-          <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10 max-[500px]:text-6xl">
-            Where AI Meets Words
+          <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-[90px] font-semibold leading-tight text-transparent dark:from-white dark:to-slate-900/10 max-[997px]:text-[64px] max-[645px]:w-[425px] max-[425px]:text-[45px] max-[425px]:w-[325px]">
+            Every Page, a New Story
           </span>
+          <span className='text-center text-2xl font-normal mt-5 text-slate-950 dark:text-slate-100 w-[500px] max-[645px]:text-lg max-[645px]:w-[425px] max-[425px]:w-[325px]'>A platform to share your stories, thoughts, and journeys, one page at a time.</span>
+          <RainbowButton className="mt-6 bg-slate-950 dark:bg-slate-100 text-white dark:text-slate-950 font-noto font-medium text-xl w-60 h-14 max-[576px]:w-48 max-[576px]:text-base max-[576px]:h-12">Explore Stories</RainbowButton>
         </div>
         <section className="container mx-auto px-4 py-16 h-screen flex flex-col items-center justify-center">
           <h3 className="text-6xl font-semibold text-center mb-12 font-noto text-slate-950 dark:text-slate-100 max-[600px]:text-4xl max-[425px]:text-3xl">What You Can Do with Blog</h3>
@@ -23,7 +25,7 @@ function Home() {
             <FeatureCards
               icon={<Edit className="h-8 w-8" />}
               title="Create Engaging Content"
-              description="Use our intuitive editor to craft beautiful blog posts with ease."
+              description="Use our intuitive editor to craft beautiful stories with ease."
             />
             <FeatureCards
               icon={<Share className="h-8 w-8" />}
@@ -33,7 +35,7 @@ function Home() {
             <FeatureCards
               icon={<Bot className="h-8 w-8" />}
               title="AI Buddy With You"
-              description="Create and summarize amazing blogs with the help of AI"
+              description="Create and summarize your stories with the help of AI."
             />
           </div>
         </section>

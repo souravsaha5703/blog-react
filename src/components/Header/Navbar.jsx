@@ -3,6 +3,7 @@ import { BsFilterRight } from "react-icons/bs";
 import { RxCross2 } from "react-icons/rx";
 import { NavLink } from 'react-router-dom'
 import { ModeToggle } from '../mode-toggle';
+import Logo from '../../assets/images/blog web logo.png';
 
 function Navbar() {
     const [toggleMenu, setToggleMenu] = useState(false);
@@ -11,7 +12,10 @@ function Navbar() {
     }
     return (
         <div className={` ${toggleMenu ? 'w-full py-5 px-10 flex flex-col items-center justify-between fixed backdrop-blur-sm z-20 border-b border-slate-300 dark:border-slate-800' : 'w-full py-5 px-10 flex items-center justify-between fixed backdrop-blur-sm z-20 border-b border-slate-300 dark:border-slate-900 max-[426px]:py-3'}`}>
-            <h1 className='font-oswald font-semibold text-2xl text-slate-950 dark:text-slate-100'>Logo</h1>
+            <div className='flex gap-4'>
+                <img src={Logo} className='size-9 rounded-lg' alt="website logo" />
+                <h1 className='font-oswald font-semibold text-2xl text-slate-950 dark:text-slate-100'>Insight</h1>
+            </div>
             <button className={`px-1 py-1 rounded-md border-2 border-gray-300 cursor-pointer ${toggleMenu ? 'hidden' : 'hidden max-[900px]:block'}`} onClick={handleToggle}><BsFilterRight className='text-2xl' /></button>
             <div className={`flex px-4 items-center justify-center gap-2 ${toggleMenu ? 'flex-col mt-5' : 'max-[900px]:hidden'}`}>
                 <NavLink to={"/"} className={({ isActive }) => `text-lg font-noto font-normal cursor-pointer hover:bg-slate-950 hover:text-slate-100 dark:text-slate-100 hover:dark:bg-slate-100 hover:dark:text-slate-950 duration-100 ease-in-out rounded-xl px-4 transition-colors py-2 capitalize text-center ${isActive ? "bg-slate-950 text-slate-100 dark:bg-slate-100 dark:text-slate-950" : "text-slate-950"}`}>Home</NavLink>
